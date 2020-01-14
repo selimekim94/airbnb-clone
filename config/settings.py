@@ -38,6 +38,7 @@ DJANGO_APPS = [
 ]
 
 PROJECT_APPS = [
+    'core.apps.CoreConfig',
     'conversations.apps.ConversationsConfig',
     'lists.apps.ListsConfig',
     'reservations.apps.ReservationsConfig',
@@ -46,7 +47,11 @@ PROJECT_APPS = [
     'users.apps.UsersConfig'
 ]
 
-INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
+THIRD_PARTY_APPS = [
+    'django_countries'
+]
+
+INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
