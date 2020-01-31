@@ -27,7 +27,7 @@ class Reservation(TimeStampedModel):
 
     def in_progress(self):
         now = timezone.now().date()
-        return self.check_in < now < self.check_out
+        return self.check_in <= now <= self.check_out
 
     in_progress.boolean = True
 

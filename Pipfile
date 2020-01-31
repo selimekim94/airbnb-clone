@@ -9,6 +9,8 @@ verify_ssl = true
 django = "*"
 pillow = "*"
 django-countries = "*"
+django-seed = "*"
+faker = "==2.0.5"
 
 [requires]
 python_version = "3.8"
