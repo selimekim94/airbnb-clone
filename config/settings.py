@@ -50,6 +50,7 @@ PROJECT_APPS = [
 THIRD_PARTY_APPS = [
     'django_countries',
     'django_seed',
+    'crispy_forms'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
@@ -134,3 +135,15 @@ AUTH_USER_MODEL = 'users.User'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/media/'
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/users/login/'
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

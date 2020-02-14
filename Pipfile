@@ -11,6 +11,8 @@ pillow = "*"
 django-countries = "*"
 django-seed = "*"
 faker = "==2.0.5"
+django-crispy-forms = "*"
+django-dotenv = "*"
 
 [requires]
 python_version = "3.8"

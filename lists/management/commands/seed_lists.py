@@ -27,6 +27,6 @@ class Command(BaseCommand):
         created_lists_ids = flatten(list(created_lists.values()))
         for id in created_lists_ids:
             created_list = List.objects.get(id=id)
-            rooms = rooms[:randint(0, len(rooms) - 1)]
+            rooms = rooms[:randint(0, len(rooms))]
             created_list.rooms.add(*rooms)
         self.stdout.write(self.style.SUCCESS(f'{number} lists created!'))

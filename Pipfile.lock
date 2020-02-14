@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d13bc297e92f5848dafdb1ae653f97d9f7c8c71d11bbbb79ec7b1c0ae64f028d"
+            "sha256": "bb8cf57fdb0b70d998f1cc3df51b247c0433b05d277b1ece4a01f3c2864defa0"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -25,11 +25,11 @@
         },
         "django": {
             "hashes": [
-                "sha256:4f2c913303be4f874015993420bf0bd8fd2097a9c88e6b49c6a92f9bdd3fb13a",
-                "sha256:8c3575f81e11390893860d97e1e0154c47512f180ea55bd84ce8fa69ba8051ca"
+                "sha256:2f1ba1db8648484dd5c238fb62504777b7ad090c81c5f1fd8d5eb5ec21b5f283",
+                "sha256:c91c91a7ad6ef67a874a4f76f58ba534f9208412692a840e1d125eb5c279cb0a"
             ],
             "index": "pypi",
-            "version": "==3.0.2"
+            "version": "==3.0.3"
         },
         "django-countries": {
             "hashes": [
@@ -39,12 +39,28 @@
             "index": "pypi",
             "version": "==5.5"
         },
-        "django-seed": {
+        "django-crispy-forms": {
             "hashes": [
-                "sha256:da5dc54494c2d4274a6b9f9a2aea69cb15c3cce80777e2d30b3a5a082c0a7ee8"
+                "sha256:0afc0ba730f52a13c02bfbd0e1423af4577a337d73a8a0ef96f2cbbc5f345ffa",
+                "sha256:2db711ce31f6f9ef42c16829cc3636e3819f97c1b22a3b706afed679bc417e88"
             ],
             "index": "pypi",
-            "version": "==0.1.9"
+            "version": "==1.8.1"
+        },
+        "django-dotenv": {
+            "hashes": [
+                "sha256:3812bb0f4876cf31f902aad140f0645e120e51ee30eb7c40c22050f58a0e4adb",
+                "sha256:a9b1b40a70bd321acd231926acedb9bd2c5e873e33a1873b34a7276d196a765e"
+            ],
+            "index": "pypi",
+            "version": "==1.4.2"
+        },
+        "django-seed": {
+            "hashes": [
+                "sha256:5cdda71dcd51b2e7340e4aec9035d99d7014409a4b11adddbdff17d814968221"
+            ],
+            "index": "pypi",
+            "version": "==0.2.2"
         },
         "faker": {
             "hashes": [
