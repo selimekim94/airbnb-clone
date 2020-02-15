@@ -6,6 +6,8 @@ from .views import (
     CustomPasswordChangeView,
     CustomPasswordChangeDoneView,
     CompleteVerificationView,
+    login_github,
+    callback_github,
 )
 
 app_name = 'users'
@@ -16,5 +18,7 @@ urlpatterns = [
     path('signup/', CustomSignupView.as_view(), name='signup'),
     path('password_change/', CustomPasswordChangeView.as_view(), name='password_change'),
     path('password_change_done/', CustomPasswordChangeDoneView.as_view(), name='password_change_done'),
-    path('verify/<str:key>', CompleteVerificationView.as_view(), name='complete-verification'),
+    path('verify/<str:key>/', CompleteVerificationView.as_view(), name='complete-verification'),
+    path('social/github', login_github, name='login-github'),
+    path('social/github/callback/', callback_github, name='callback-github'),
 ]

@@ -4,6 +4,7 @@
 {% block page_title %}Login{% endblock %}
 {% block search-bar %}{% endblock %}
 {% block content %}
+    {% include 'partials/social_login.html' %}
     <form method="post">
         {% csrf_token %}
         {{ form|crispy }}
