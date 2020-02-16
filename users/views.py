@@ -10,6 +10,7 @@ from django.contrib.auth.views import (
 from django.shortcuts import redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, View
+from django.core.files.base import ContentFile
 from .forms import CustomUserCreationForm
 from .models import User
 from .exceptions import GithubException
@@ -21,7 +22,7 @@ class CustomLoginView(LoginView):
 
     def dispatch(self, *args, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect('core:home')
+            return redirect(reverse('core:home'))
         return super().dispatch(*args, **kwargs)
 
 
@@ -36,7 +37,7 @@ class CustomSignupView(CreateView):
 
     def dispatch(self, *args, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect('core:home')
+            return redirect(reverse('core:home'))
         return super().dispatch(*args, **kwargs)
 
 
@@ -88,12 +89,12 @@ def callback_github(request):
                 access_token = data.get('access_token')
                 r = requests.get(url='https://api.github.com/user', headers={'Authorization': f'token {access_token}'})
                 data = r.json()
-                # handle if users github email is None
                 username = data.get('login', None)
                 if username is not None:
                     name = data.get('name')
                     email = data.get('email', None)
                     bio = data.get('bio')
+                    avatar_url = data.get('avatar_url', None)
                     if email is not None:
                         try:
                             user = User.objects.get(email=email)
@@ -110,6 +111,9 @@ def callback_github(request):
                             )
                             user.set_unusable_password()
                             user.save()
+                            if avatar_url is not None:
+                                r = requests.get(url=avatar_url)
+                                user.avatar.save(f'{name}_avatar', ContentFile(r.content))
                         login(request, user)
                         return redirect(reverse('core:home'))
                     else:

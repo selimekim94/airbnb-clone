@@ -42,7 +42,6 @@ class User(AbstractUser):
     LOGIN_CHOICES = (
         (LOGIN_EMAIL, "Email"),
         (LOGIN_GITHUB, "Github"),
-        (LOGIN_KAKAO, "Kakao"),
     )
 
     email = models.EmailField(_('email address'), unique=True)
